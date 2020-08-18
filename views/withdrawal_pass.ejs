@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<!-- 
+Template Name: Trade Coin - Digital Exchange HTML Template 
+Version: 1.0.0
+Author: Kamleshyadav
+Website: 
+Purchase: 
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="	advisor, analytical, audit, broker, brokerage, business, company, consulting, currency, exchange, finance, financial, insurance, modern, trader">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="icon" type="image/png" href="assets/images/fav.png"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.css"></script>
+    <script>
+        $(document).ready(function(){
+            $("#mePassword").modal('show');
+        });
+    </script>
+</head>
+<body>
+<div class="me-main-wraper">
+    <!-- top header -->
+    <div class="me-top-header">
+        <div class="container">
+            <div class="me-top-head">
+                <div class="me-top-header-left">
+                    <ul>
+                        <li>Follow Us :</li>
+                        <li><a href="javascript:;"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="javascript:;"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="javascript:;"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li><a href="javascript:;"><i class="fab fa-pinterest-p"></i></a></li>
+                        <li><a href="javascript:;"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+                <div class="me-top-header-right">
+                    <ul>
+                        <li><i class="far fa-envelope-open"></i> hndai.17ck1@gmail.com</li>
+                        <li><i class="fas fa-mobile-alt"></i>0522621678</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- main header -->
+    <div class="me-main-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 col-7">
+                    <div class="me-logo">
+                        <% if(currentUser.bank=='ACB'){ %>
+                            <a href="/customer"><img src="https://scontent.fsgn2-1.fna.fbcdn.net/v/t1.15752-9/102287511_1740738822733934_8490192992860536777_n.jpg?_nc_cat=105&_nc_sid=b96e70&_nc_ohc=6xrLG8PyCicAX-EhLnh&_nc_ht=scontent.fsgn2-1.fna&oh=0903deb23e07c7c5defd37c19a64d160&oe=5F5C7BB9" alt="logo" class="img-fluid"/></a>
+                        <%}%>
+                        <% if(currentUser.bank=='Agribank'){ %>
+                            <a href="/customer"><img src="https://scontent.fsgn2-2.fna.fbcdn.net/v/t1.15752-9/117340134_1015287195593551_7921453655484849756_n.png?_nc_cat=103&_nc_sid=b96e70&_nc_ohc=KWHujQU2sFcAX-LVWP6&_nc_ht=scontent.fsgn2-2.fna&oh=694ecf5ff9df58742a7068d6e62d55b1&oe=5F5D4F99" alt="logo" class="img-fluid"/></a>
+                        <%}%>
+                    </div>
+                </div>
+                <div class="col-sm-9 col-5">
+                    <div class="me-menu">
+                        <ul>
+                            <li><a href="/notification">Notification</a></li>
+                            <li><a href="/customer" class="me-active-menu">Personal Page</a></li>
+                        </ul>
+                        <div class="me-toggle-nav">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <a href="/logout" >Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- My Account -->
+    <div class="me-banner-two">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="me-my-account-profile">
+                        <div class="me-my-profile-head">
+                            <div class="me-profile-name">
+                                <h4>My profile : <%=currentUser.displayName %></h4>
+                                <div class="me-profile-data">
+                                    <p><%=bank.Name %></p>
+                                </div>
+                            </div>
+                            <div class="me-my-profile-img">
+                                <div class="me-my-profile-img-main">
+                                    <img src="https://via.placeholder.com/85x85" class="img-fluid" alt="image">
+                                    <div class="me-my-profile-svg" data-toggle="modal" data-target="#me-profile-modal">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55.25 55.25">
+                                        <path d="M52.618,2.631c-3.51-3.508-9.219-3.508-12.729,0L3.827,38.693C3.81,38.71,3.8,38.731,3.785,38.749
+                                            c-0.021,0.024-0.039,0.05-0.058,0.076c-0.053,0.074-0.094,0.153-0.125,0.239c-0.009,0.026-0.022,0.049-0.029,0.075
+                                            c-0.003,0.01-0.009,0.02-0.012,0.03l-3.535,14.85c-0.016,0.067-0.02,0.135-0.022,0.202C0.004,54.234,0,54.246,0,54.259
+                                            c0.001,0.114,0.026,0.225,0.065,0.332c0.009,0.025,0.019,0.047,0.03,0.071c0.049,0.107,0.11,0.21,0.196,0.296
+                                            c0.095,0.095,0.207,0.168,0.328,0.218c0.121,0.05,0.25,0.075,0.379,0.075c0.077,0,0.155-0.009,0.231-0.027l14.85-3.535
+                                            c0.027-0.006,0.051-0.021,0.077-0.03c0.034-0.011,0.066-0.024,0.099-0.039c0.072-0.033,0.139-0.074,0.201-0.123
+                                            c0.024-0.019,0.049-0.033,0.072-0.054c0.008-0.008,0.018-0.012,0.026-0.02l36.063-36.063C56.127,11.85,56.127,6.14,52.618,2.631z
+                                            M51.204,4.045c2.488,2.489,2.7,6.397,0.65,9.137l-9.787-9.787C44.808,1.345,48.716,1.557,51.204,4.045z M46.254,18.895l-9.9-9.9
+                                            l1.414-1.414l9.9,9.9L46.254,18.895z M4.961,50.288c-0.391-0.391-1.023-0.391-1.414,0L2.79,51.045l2.554-10.728l4.422-0.491
+                                            l-0.569,5.122c-0.004,0.038,0.01,0.073,0.01,0.11c0,0.038-0.014,0.072-0.01,0.11c0.004,0.033,0.021,0.06,0.028,0.092
+                                            c0.012,0.058,0.029,0.111,0.05,0.165c0.026,0.065,0.057,0.124,0.095,0.181c0.031,0.046,0.062,0.087,0.1,0.127
+                                            c0.048,0.051,0.1,0.094,0.157,0.134c0.045,0.031,0.088,0.06,0.138,0.084C9.831,45.982,9.9,46,9.972,46.017
+                                            c0.038,0.009,0.069,0.03,0.108,0.035c0.036,0.004,0.072,0.006,0.109,0.006c0,0,0.001,0,0.001,0c0,0,0.001,0,0.001,0h0.001
+                                            c0,0,0.001,0,0.001,0c0.036,0,0.073-0.002,0.109-0.006l5.122-0.569l-0.491,4.422L4.204,52.459l0.757-0.757
+                                            C5.351,51.312,5.351,50.679,4.961,50.288z M17.511,44.809L39.889,22.43c0.391-0.391,0.391-1.023,0-1.414s-1.023-0.391-1.414,0
+                                            L16.097,43.395l-4.773,0.53l0.53-4.773l22.38-22.378c0.391-0.391,0.391-1.023,0-1.414s-1.023-0.391-1.414,0L10.44,37.738
+                                            l-3.183,0.354L34.94,10.409l9.9,9.9L17.157,47.992L17.511,44.809z M49.082,16.067l-9.9-9.9l1.415-1.415l9.9,9.9L49.082,16.067z"/>
+                                        </svg>     
+                                    </div>                               
+                                </div>
+                            </div>
+                        </div>
+                        <div  class="me-account-profile-shape">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none" height="50" width="100%"> <path class="exqute-fill-white" d="M790.5,93.1c-59.3-5.3-116.8-18-192.6-50c-29.6-12.7-76.9-31-100.5-35.9c-23.6-4.9-52.6-7.8-75.5-5.3 c-10.2,1.1-22.6,1.4-50.1,7.4c-27.2,6.3-58.2,16.6-79.4,24.7c-41.3,15.9-94.9,21.9-134,22.6C72,58.2,0,25.8,0,25.8V100h1000V65.3 c0,0-51.5,19.4-106.2,25.7C839.5,97,814.1,95.2,790.5,93.1z"></path></svg>
+                        </div>
+                        <div class="me-my-profile-body">
+                            <ul>
+                                <li>
+                                    <div class="me-profile-data">
+                                        <p>STK</p>
+                                    </div>
+                                    <div class="me-profile-data">
+                                        <p><%=currentUser.id %></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="me-profile-data">
+                                        <p>Chủ TK</p>
+                                    </div>
+                                    <div class="me-profile-data">
+                                        <p><%=currentUser.displayName %></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="me-profile-data">
+                                        <p>Email</p>
+                                    </div>
+                                    <div class="me-profile-data">
+                                        <p><%=currentUser.email %></p>
+                                    </div>
+                                </li>                               
+                                <li>
+                                    <div class="me-profile-data">
+                                        <p>Birthday</p>
+                                    </div>
+                                    <div class="me-profile-data">
+                                        <p><%=currentUser.birthday %></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="me-profile-data">
+                                        <p>SDT</p>
+                                    </div>
+                                    <div class="me-profile-data">
+                                        <p>+84 <%=currentUser.SDT %></p>
+                                    </div>
+                                </li>
+                                <form action="/customer" method="post">
+                                    <li>
+                                        <div class="me-profile-data">
+                                            <p>Lock account</p>
+                                        </div>
+                                        <div class="me-profile-data">
+                                            <input type="submit" id="lock" name="lock" value="Lock account" style="width: 120px;color:green;">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="me-profile-data">
+                                            <p>Transaction lock</p>
+                                        </div>
+                                        <div class="me-profile-data">
+                                            <% if(currentUser.transaction_lock==true){ %>
+                                                <input type="submit" id="lock" name="lock" value="Open transaction" style="width: 150px;color:red;">
+                                            <% } %>
+                                            <% if(currentUser.transaction_lock!=true){ %>
+                                                <input type="submit" id="lock" name="lock" value="Lock transaction" style="width: 150px;color:green;">
+                                            <% } %>
+                                        </div>
+                                    </li>
+                                </form>
+                                <li><a class="me-btn" href="/customer_update_user">Change Password</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="me-account-summary">
+                        <div class="me-account-summary-head">
+                            <div>
+                                <h4>Account detail</h4>
+                            </div>
+                        </div>
+                        <div class="me-account-summary-body me-account-money-detail">
+                            <ul>
+                                <% if(currentUser.transaction_lock==true){ %>
+                                    <li>
+                                        <div class="me-summary-data">
+                                            <p>Account</p>
+                                            <p><strong><%=currentAccount.money %> VND</strong></p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="me-summary-data">
+                                            <p><strong><%=currentAccount.money_USD %> USD</strong></p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="me-summary-data">
+                                            <p>Account saving</p>
+                                            <p><strong><%=currentAccount.money_save %> VND</strong></p>
+                                        </div>
+                                    </li>
+                                    <li style="color:red">Tài khoản đã bị khóa giao dịch!!!</li>
+                                <% } %>
+                                <% if(currentUser.transaction_lock!=true){ %>
+                                    <li>
+                                        <div class="me-summary-data">
+                                            <p>Account</p>
+                                            <p><strong><%=currentAccount.money %> VND</strong></p>
+                                        </div>
+                                        <a class="me-btn" href="/VND_USD">VND -> USD</a>
+                                    </li>
+                                    <li>
+                                        <div class="me-summary-data">
+                                            <p><strong><%=currentAccount.money_USD %> USD</strong></p>
+                                        </div>
+                                        <a class="me-btn" href="/USD_VND">USD -> VND</a>
+                                        <li style="margin-left: 74%"><a class="me-btn" href="/transfer">Transfer</a></li>
+                                    </li>
+                                    <li>
+                                        <div class="me-summary-data">
+                                            <p>Account saving</p>
+                                            <p><strong><%=currentAccount.money_save %> VND</strong></p>
+                                        </div>
+                                        <a class="me-btn" href="/withdrawal">Withdrawal</a>
+                                        <% if(account_saving){%>
+                                            <% if(account_saving.check!=true){%>
+                                                <a class="me-btn" href="/loaded_bill">Cancel</a>
+                                                <%- `<li style="color:red">Còn ${time_day} ngày nữa</li>`  %>
+                                            <%}%>
+                                            <% if(account_saving.check==true){%>
+                                                <li style="color:red">Đang chờ xử lý...</li>
+                                            <%}%>
+                                        <%}%>
+                                        <%if(!account_saving){%>
+                                            <a class="me-btn" href="/loaded_views">Loaded</a> 
+                                        <%}%>
+                                    </li>
+                                <% } %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Footer -->
+<div class="me-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="me-footer-block">
+                    <div class="me-logo">
+                        <% if(currentUser.bank=='ACB'){ %>
+                            <a href="/customer"><img src="https://scontent.fsgn2-1.fna.fbcdn.net/v/t1.15752-9/102287511_1740738822733934_8490192992860536777_n.jpg?_nc_cat=105&_nc_sid=b96e70&_nc_ohc=6xrLG8PyCicAX-EhLnh&_nc_ht=scontent.fsgn2-1.fna&oh=0903deb23e07c7c5defd37c19a64d160&oe=5F5C7BB9" alt="logo" class="img-fluid"/></a>
+                        <%}%>
+                        <% if(currentUser.bank=='Agribank'){ %>
+                            <a href="/customer"><img src="https://scontent.fsgn2-2.fna.fbcdn.net/v/t1.15752-9/117340134_1015287195593551_7921453655484849756_n.png?_nc_cat=103&_nc_sid=b96e70&_nc_ohc=KWHujQU2sFcAX-LVWP6&_nc_ht=scontent.fsgn2-2.fna&oh=694ecf5ff9df58742a7068d6e62d55b1&oe=5F5D4F99" alt="logo" class="img-fluid"/></a>
+                        <%}%>
+                    </div>
+                    <ul>
+                        <li class="me-footer-emial">peace.banking.17ck1@gmail.com</li>
+                        <li>+11-789-6542-852</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="me-footer-block">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="javascript:;">Duis aute irure</a></li>
+                        <li><a href="javascript:;">voluptate velit</a></li>
+                        <li><a href="javascript:;">cupidatat non</a></li>
+                        <li><a href="javascript:;">Excepteur</a></li>
+                        <li><a href="javascript:;">sunt in culpa</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="me-footer-block">
+                    <h4>About us</h4>
+                    <ul>
+                        <li><a href="javascript:;">aute irure</a></li>
+                        <li><a href="javascript:;">voluptate velit</a></li>
+                        <li><a href="javascript:;">cupidatat</a></li>
+                        <li><a href="javascript:;">Excepteur</a></li>
+                        <li><a href="javascript:;">sunt culpa</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="me-footer-block">
+                    <h4>Address</h4>
+                    <ul>
+                        <li>Akshya Nagar 1st Block 1st Cross, Rammurthy nagar, Bangalore-560016</li>
+                    </ul>
+                    <ul class="me-footer-share">
+                        <li><a href="javascript:;"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="javascript:;"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="javascript:;"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li><a href="javascript:;"><i class="fab fa-pinterest-p"></i></a></li>
+                        <li><a href="javascript:;"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Copyright Footer -->
+<div class="me-footer-copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="me-copyright-block">
+                    <p>&copy; 2020 copyright all right reserved by <a href="/customer">Internet Banking</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Rate -->
+<div id="me-rate">
+    <p>
+        <span>EUR/USD -0.54559%</span>
+        <span>USD/JPY -0.12283%</span>
+        <span>GBP/USD -0.44243%</span>
+        <span>USD/CHF +0.15403%</span>
+        <span>USD/CAD +0.03873%</span>
+        <span>EUR/JPY -0.66775%</span>
+        <span>AUD/USD -0.59356%</span>
+        <span>CNY/USD +0.10728%</span>
+        <span>EUR/USD -0.54559%</span>
+        <span>USD/JPY -0.12283%</span>
+        <span>GBP/USD -0.44243%</span>
+        <span>USD/CHF +0.15403%</span>
+        <span>USD/CAD +0.03873%</span>
+        <span>EUR/JPY -0.66775%</span>
+    </p>
+</div>
+<div class="modal fade me-login-model" id="mePassword">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <button type="button" class="close me-team-close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            <div class="modal-body">
+                <h1 class="me-login-title">Password</h1>
+                <form action="/withdrawal_pass" method="post">
+                    <div class="me-login-form">
+                        <input type="password" id="password" name="password" required>  
+                        <div class="form-group">
+                            <% if(errors || errors.length){ %>
+                            <% errors.forEach(item=>{%>
+                            <%- `<p style="color:red">* ${item.msg}</p>`  %>
+                            <%})%>
+                            <%}%>
+                        </div>                      
+                        <div class="me-transaction-load-more">
+                            <input type="submit" class="me-btn" value="OK" style="width: 15px;">
+                        </div>
+                    </div>
+                </form>
+                <div class="me-login-with-social">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="./routes/transfer_OTP"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="./routes/staff_moneyloaded"></script>
+<script src="assets/js/swiper.min.js"></script>
+<script src="assets/js/SmoothScroll.min.js"></script>
+<script src="assets/js/ui_range_slider.js"></script>
+<script src="assets/js/canvasjs.js"></script>
+<script src="assets/js/custom.js"></script>
+</body>
+</html>
