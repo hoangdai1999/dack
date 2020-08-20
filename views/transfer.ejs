@@ -24,12 +24,12 @@ Purchase:
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="icon" type="image/png" href="assets/images/fav.png"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://ltw2-2019-2020.herokuapp.com/socket.io/socket.io.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.css"></script>
     <script>
-        var socket = io("http://localhost:3000");
+        var socket = io("https://ltw2-2019-2020.herokuapp.com");
         socket.on("server_send",function(data){
             if(data!=""){
                 $("#ok").html("Gợi ý: "+data);
