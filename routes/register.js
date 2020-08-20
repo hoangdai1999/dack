@@ -91,6 +91,6 @@ router.post('/',[
     })
     await Accept_user.addUser(user.id,user.displayName,user.bank);
     req.session.notification=1;
-    return res.redirect('/login');
+    return res.redirect('/');
 }));
 module.exports = router;

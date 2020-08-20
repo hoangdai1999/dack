@@ -5,7 +5,7 @@ const { body, validationResult } = require('express-validator');
 
 const router = new Router();
 router.get('/', asyncHandler(async function (req,res){
-    return res.render('login_locked_account');
+    return res.render('login_OTP_err');
 }));
 
 module.exports = router;

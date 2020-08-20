@@ -24,12 +24,12 @@ Purchase:
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="icon" type="image/png" href="assets/images/fav.png"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
-    <script src="https://ltw2-2019-2020.herokuapp.com/socket.io/socket.io.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.css"></script>
     <script>
-        var socket = io("https://ltw2-2019-2020.herokuapp.com");
+        var socket = io("http://localhost:3000");
         socket.on("server_send",function(data){
             if(data!=""){
                 $("#ok").html("Gợi ý: "+data);
@@ -46,6 +46,9 @@ Purchase:
                 socket.emit("find_user",$("#STK").val()+" "+$("#code").val())
             });
             $("#STK").focusout(function(){
+                socket.emit("find_user",$("#STK").val()+" "+$("#code").val())
+            });
+            $("#code").focusout(function(){
                 socket.emit("find_user",$("#STK").val()+" "+$("#code").val())
             });
         });
@@ -95,7 +98,12 @@ Purchase:
                         <ul>
                             <li><a href="/staff" class="me-active-menu">Customer information</a></li>
                             <li><a href="/staff_moneyloaded">Transfer money to customers</a></li>
-                            <li><a href="/staff_accept_transactions">Accept transactions</a></li>
+                            <% if(count==0){ %>
+                                <li><a href="/staff_accept_transactions">Accept transactions</a></li>
+                            <% } %>
+                            <% if(count>0){ %>
+                                <%- `<li><a href="/staff_accept_transactions">Accept transactions<a style="color:red">(${count})</a></a></li>` %>
+                            <% } %>
                         </ul>
                         <div class="me-toggle-nav">
                             <span></span>
@@ -117,7 +125,7 @@ Purchase:
             </div>
             <div class="me-menu" >
                 <form action="/staff_find" method="post">
-                    <input type="number" placeholder="STK" id="STK" name="STK" style="margin-left: 65%; width: 220px;" required>
+                    <input type="number" placeholder="STK" id="STK_find" name="STK_find" style="margin-left: 65%; width: 220px;" required>
                     <input type="submit" class="me-btn" value="OK" style="width: 15px;">
                 </form>
             </div>

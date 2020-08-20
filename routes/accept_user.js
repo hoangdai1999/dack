@@ -12,7 +12,7 @@ router.get('/',asyncHandler(async function (req,res){
     const accept_user=await Accept_user.findByPk(req.session.id);
 
     const user=await User.findById(accept_user.STK);
-    await Email.send(user.email,'Mã kích hoạt tài khoản',`https://ltw2-2019-2020.herokuapp.com/${user.id}/${user.OTP}`);
+    await Email.send(user.email,'Mã kích hoạt tài khoản',`http://localhost:3000/${user.id}/${user.OTP}`);
 
     await Accept_user.deleteById(req.session.id)
     delete req.session.id;

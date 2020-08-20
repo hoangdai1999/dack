@@ -53,7 +53,7 @@ Purchase:
     <div class="me-main-header">
         <div class="container">
             <div class="row">
-                <div class="col-sm-3 col-7">
+                <div class="col-sm-3 col-7"> 
                     <div class="me-logo">
                         <% if(currentUser.bank=='ACB'){ %>
                             <a href="/staff"><img src="https://scontent.fsgn2-1.fna.fbcdn.net/v/t1.15752-9/102287511_1740738822733934_8490192992860536777_n.jpg?_nc_cat=105&_nc_sid=b96e70&_nc_ohc=6xrLG8PyCicAX-EhLnh&_nc_ht=scontent.fsgn2-1.fna&oh=0903deb23e07c7c5defd37c19a64d160&oe=5F5C7BB9" alt="logo" class="img-fluid"/></a>
@@ -68,7 +68,12 @@ Purchase:
                         <ul>
                             <li><a href="/staff">Customer information</a></li>
                             <li><a href="/staff_moneyloaded">Transfer money to customers</a></li>
-                            <li><a href="/staff_accept_transactions">Accept transactions</a></li>
+                            <% if(count==0){ %>
+                                <li><a href="/staff_accept_transactions">Accept transactions</a></li>
+                            <% } %>
+                            <% if(count>0){ %>
+                                <%- `<li><a href="/staff_accept_transactions">Accept transactions<a style="color:red">(${count})</a></a></li>` %>
+                            <% } %>
                         </ul>
                         <div class="me-toggle-nav">
                             <span></span>
@@ -90,7 +95,7 @@ Purchase:
             </div>
             <div class="me-menu" >
                 <form action="/staff_find" method="post">
-                    <input type="number" placeholder="STK" id="STK" name="STK" style="margin-left: 65%; width: 220px;" required>
+                    <input type="number" placeholder="STK" id="STK_find" name="STK_find" style="margin-left: 65%; width: 220px;" required>
                     <input type="submit" class="me-btn" value="OK" style="width: 15px;">
                 </form>
             </div>

@@ -16,7 +16,7 @@ var errors=[];
 var time_day=0;
 router.get('/',asyncHandler(async function (req,res){
     const user= await User.findById(req.session.userId);
-    const bank_user=await Bank.findByCode(user.bank);
+    const bank=await Bank.findByCode(user.bank);
     const account_saving=await Account_saving.findBySTK(req.session.userId);
     if(req.session.userId){
         if(user.staff==true){
@@ -32,7 +32,7 @@ router.get('/',asyncHandler(async function (req,res){
             return res.redirect('login_locked_account');
         }
         if(account_saving){
-            time_day=await Interest_rate.sum_day(req.session.userId);
+            time_day=await Interest_rate.sum_day(account_saving);
         }
         if(req.session.idTransfer){
             return res.render('transfer_OTP',{errors,bank,time_day,account_saving});
@@ -47,7 +47,7 @@ router.get('/',asyncHandler(async function (req,res){
 router.post('/',asyncHandler(async function (req,res){
     errors = validationResult(req);
     const user= await User.findById(req.session.userId);
-    const bank_user=await Bank.findByCode(user.bank);
+    const bank=await Bank.findByCode(user.bank);
     const account_saving=await Account_saving.findBySTK(req.session.userId);
     if(user.authentication!=null){
         req.session.id=req.session.userId;

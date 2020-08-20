@@ -33,7 +33,7 @@ router.get('/', asyncHandler(async function (req,res){
             return res.redirect('login_locked_account');
         }
         if(account_saving){
-            time_day=await Interest_rate.sum_day(req.session.userId);
+            time_day=await Interest_rate.sum_day(account_saving);
         }
         return res.render('VND_USD_pass', { errors, bank,time_day,account_saving});
     }

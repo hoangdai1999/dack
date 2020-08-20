@@ -30,6 +30,13 @@ Purchase:
             });
         </script>
     <% } %>
+    <% if(notification==2){ %>
+        <script>
+            $(document).ready(function(){
+                alert("Đăng nhập thành công!!!");
+            });
+        </script>
+    <% } %>
 </head>
 <body>
 <div class="me-main-wraper">
@@ -75,12 +82,17 @@ Purchase:
                         <ul>
                             <li><a href="/staff" class="me-active-menu">Customer information</a></li>
                             <li><a href="/staff_moneyloaded">Transfer money to customers</a></li>
-                            <li><a href="/staff_accept_transactions">Accept transactions</a></li>
+                            <% if(count==0){ %>
+                                <li><a href="/staff_accept_transactions">Accept transactions</a></li>
+                            <% } %>
+                            <% if(count>0){ %>
+                                <%- `<li><a href="/staff_accept_transactions">Accept transactions<a style="color:red">(${count})</a></a></li>` %>
+                            <% } %>
                         </ul>
                         <div class="me-toggle-nav">
                             <span></span>
                             <span></span>
-                            <span></span>
+                            <span></span> 
                         </div>
                         <a href="/logout" >Logout</a>
                     </div>
@@ -97,7 +109,7 @@ Purchase:
             </div>
             <div class="me-menu" >
                 <form action="/staff_find" method="post">
-                    <input type="number" placeholder="STK" id="STK" name="STK" style="margin-left: 65%; width: 220px;" required>
+                    <input type="number" placeholder="STK" id="STK_find" name="STK_find" style="margin-left: 65%; width: 220px;" required>
                     <input type="submit" class="me-btn" value="OK" style="width: 15px;">
                 </form>
             </div>

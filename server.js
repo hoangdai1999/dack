@@ -27,7 +27,10 @@ app.set("views","./views");
 
 app.use('/',require('./routes/login'));
 app.get('/:id/:OTP',require('./routes/login_OTP'));
-app.get('/login_locked_account',require('./routes/login_locked_account'));
+app.use('/login_locked_account',require('./routes/login_locked_account'));
+app.use('/login_authentication',require('./routes/login_authentication'));
+app.use('/login_not_activated',require('./routes/login_not_activated'));
+app.use('/login_OTP_err',require('./routes/login_OTP_err'));
 
 app.use(require('./middlewares/auth'));
 app.use(require('./middlewares/account'));
@@ -39,8 +42,6 @@ app.use('/register',require('./routes/register'));
 app.use('/forgot',require('./routes/forgot'));
 app.use('/forgot_OTP',require('./routes/forgot_OTP'));
 app.use('/forgot_password',require('./routes/forgot_password'));
-
-app.use('/test',require('./routes/test'));
 
 app.use('/customer',require('./routes/customer'));
 app.use('/customer_update_user',require('./routes/customer_update_user'));

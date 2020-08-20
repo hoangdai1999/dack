@@ -34,7 +34,7 @@ router.get('/',asyncHandler(async function (req,res){
         }
 
         if(account_saving){
-            time_day=await Interest_rate.sum_day(req.session.userId);
+            time_day=await Interest_rate.sum_day(account_saving);
         }
         return res.render('customer_update_user_OTP',{errors,bank,time_day,account_saving});
     }

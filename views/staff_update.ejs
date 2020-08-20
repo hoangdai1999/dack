@@ -68,7 +68,12 @@ Purchase:
                         <ul>
                             <li><a href="/staff">Customer information</a></li>
                             <li><a href="/staff_moneyloaded">Transfer money to customers</a></li>
-                            <li><a href="/staff_accept_transactions">Accept transactions</a></li>
+                            <% if(count==0){ %>
+                                <li><a href="/staff_accept_transactions">Accept transactions</a></li>
+                            <% } %>
+                            <% if(count>0){ %>
+                                <%- `<li><a href="/staff_accept_transactions">Accept transactions<a style="color:red">(${count})</a></a></li>` %>
+                            <% } %>
                         </ul>
                         <div class="me-toggle-nav">
                             <span></span>

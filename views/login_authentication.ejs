@@ -67,7 +67,7 @@ Purchase:
                 </div>
                 <div class="col-sm-9 col-5">
                     <div class="me-menu">
-                        <a href="/" class="me-login-menu" data-toggle="modal" data-target="#meLogin">Login</a>
+                        <a href="/" class="me-login-menu" >Login</a>
                     </div>
                 </div>
             </div>
@@ -268,7 +268,7 @@ Purchase:
             </button>
             <div class="modal-body">
                 <h1 class="me-login-title">OTP</h1>
-                <form action="/forgot_OTP" method="post">
+                <form action="/login_authentication" method="post">
                     <div class="me-login-form">
                         <input type="text" placeholder="OTP" id="OTP" name="OTP" required> 
                         <li>Paper type</li>
@@ -276,7 +276,7 @@ Purchase:
                         <div class="form-group">
                             <% if(errors || errors.length){ %>
                             <% errors.forEach(item=>{%>
-                            <%- `<p style="color:red">* ${item.msg}</p>`  %>
+                            <%- `<p style="color:red"> ${item.msg}</p>`  %>
                             <%})%>
                             <%}%>
                         </div>                       

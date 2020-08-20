@@ -17,15 +17,15 @@ class Account_saving extends Model {
                 id,
             }
         });
-    };
+    }
 
-    static async findBySTK(STK){
+    static async findBySTK(STK){ 
         return Account_saving.findOne({
             where:{
                 STK,
             }
         });
-    };
+    }
 
     static async deleteById(STK){
         return Account_saving.destroy({

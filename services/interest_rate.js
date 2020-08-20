@@ -20,13 +20,13 @@ class Interest_rate extends Model {
         return date_name;
     };
 
-    static async sum_day(STK){
-        const account_saving=await Account_saving.findBySTK(STK);
-        const today= await Interest_rate.sent_date();
+    static async sum_day(account_saving){
+        // var account_saving=await Account_saving.findBySTK(STK);
+        var today= await Interest_rate.sent_date();
         if(today==account_saving.date_received || account_saving.check==true){
             return 0;
         }
-        else{
+        else{ 
             var sent_date=new Date(today);
             var day_sent=sent_date.getDate();
             var month_sent=sent_date.getMonth();

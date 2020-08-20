@@ -115,7 +115,7 @@ router.get('/:id/:OTP',asyncHandler(async function (req,res){
         return res.redirect('/customer');
     }
     else{
-        return res.render('/login_OTP_err');
+        return res.redirect('/login_locked_account');
     }    
 }));
 

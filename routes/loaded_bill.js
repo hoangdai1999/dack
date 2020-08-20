@@ -12,7 +12,7 @@ const router = new Router();
 
 var errors=[];
 
-var time_day;
+var time_day=0;
 
 router.get('/', asyncHandler(async function (req,res){
     const user= await User.findById(req.session.userId);
@@ -33,7 +33,7 @@ router.get('/', asyncHandler(async function (req,res){
             return res.redirect('login_locked_account');
         }
         if(account_saving){
-            time_day=await Interest_rate.sum_day(req.session.userId);
+            time_day=await Interest_rate.sum_day(account_saving);
             return res.render('loaded_bill', { account_user,bank,errors,account_saving,time_day});
         }
         return res.redirect('/customer');

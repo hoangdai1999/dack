@@ -9,6 +9,14 @@ const Model=Sequelize.Model;
 class Account extends Model {
     static async findById(id){
         return Account.findByPk(id);
+    };
+
+    static async deleteById(email){
+        return Account.destroy({
+            where:{
+                email,
+            }
+        });
     }
 
     //hàm này check xem acc_bank của ng gửi có đủ số tiền đó để gửi hay k

@@ -9,11 +9,6 @@ const Email=require('../services/email');
 const crypto=require('crypto');
 const router = new Router();
 
-const io = require('socket.io-client');
-process.env.BASE_URL = "http://localhost:3000";
-let socket;
-socket = io(process.env.BASE_URL);
-
 var time_day=0;
 router.get('/',asyncHandler(async function (req,res){
     var notification=0;
@@ -38,7 +33,7 @@ router.get('/',asyncHandler(async function (req,res){
             return res.redirect('login_locked_account');
         }
         if(account_saving){
-            time_day=await Interest_rate.sum_day(req.session.userId);
+            time_day=await Interest_rate.sum_day(account_saving);
         }
         
         return res.render('customer',{bank,time_day,account_saving,notification});

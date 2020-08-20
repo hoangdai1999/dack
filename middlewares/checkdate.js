@@ -25,7 +25,7 @@ module.exports= asyncHandler(async function auth(req,res,next){
     var today = new Date();
     var date= today.toISOString();
     var sent_date=date.substring(0,10);
-    var time_day=await Interest_rate.sum_day(req.session.userId);
+    var time_day=await Interest_rate.sum_day(account_saving);
     if((account_saving.date_received==sent_date && account_saving.check==false)||(time_day<0 && account_saving.check==false)){
                             
         await Notification.addNotification(user.id,string,sent_date);
